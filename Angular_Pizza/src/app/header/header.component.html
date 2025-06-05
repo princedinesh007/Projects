@@ -1,14 +1,37 @@
+<nav class="bg-black text-white text-xl">
+  <div class="max-w-7xl mx-auto flex justify-between items-center p-5">
+    <div class="flex" routerLink="">
+      <img src="/pizzaMain.png" alt="pizza" height="64px" width="64px">
+    </div>
+    <button (click)="toggleMenu()" class="md:hidden focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+        stroke-linejoin="round">
+         <path *ngIf="!menuOpened" d="M4 6h16M4 12h16M4 18h16"></path>
+        <path *ngIf="menuOpened" d="M6 18L18 6M6 6l12 12"></path> 
+      </svg>
+    </button>
+    <div class="hidden md:flex space-x-8">
+    <a routerLink="" routerLinkActive="text-green-500 font-bold" [routerLinkActiveOptions]="{ exact: true }"
+      class="hover:text-blue-400 px-2 cursor:pointer">Home</a>
+    <a routerLink="menu" routerLinkActive="text-green-500 font-bold"
+      class="hover:text-blue-400 px-2 cursor:pointer">Menu</a>
+    <a routerLink="about" routerLinkActive="text-green-500 font-bold"
+      class="hover:text-blue-400 px-2 cursor:pointer">About</a>
+    <a routerLink="contact" routerLinkActive="text-green-500 font-bold"
+      class="hover:text-blue-400 px-2 cursor:pointer">Contact</a>
+  </div>
+  </div>
+ 
+</nav>
+ 
+<div class="md:hidden bg-black text-white flex flex-col space-y-2 p-2" *ngIf="menuOpened">
+  <a routerLink="" routerLinkActive="text-green-500 font-bold" [routerLinkActiveOptions]="{ exact: true }"
+    class="hover:text-blue-400 px-2 cursor:pointer">Home</a>
+  <a routerLink="menu" routerLinkActive="text-green-500 font-bold"
+    class="hover:text-blue-400 px-2 cursor:pointer">Menu</a>
+  <a routerLink="about" routerLinkActive="text-green-500 font-bold"
+    class="hover:text-blue-400 px-2 cursor:pointer">About</a>
+  <a routerLink="contact" routerLinkActive="text-green-500 font-bold"
+    class="hover:text-blue-400 px-2 cursor:pointer">Contact</a>
+</div>
 
-<div class="bg-black text-white text-xl">
-    <div class="max-w-7xl mx-auto flex justify-between items-center p-5">
-        <div class="flex" routerLink="">
-        <img src="/pizzaMain.png" alt="pizza" height="64px" width="64px">
-    </div>
-    <div class="md:flex space-x-8">
-      <a routerLink=""  routerLinkActive="text-green-500 font-bold"  [routerLinkActiveOptions]="{ exact: true }" class="hover:text-blue-400 px-2 cursor:pointer">Home</a>
-      <a routerLink="menu"  routerLinkActive="text-green-500 font-bold" class="hover:text-blue-400 px-2 cursor:pointer">Menu</a>
-      <a routerLink="about" routerLinkActive="text-green-500 font-bold" class="hover:text-blue-400 px-2 cursor:pointer">About</a>
-      <a routerLink="contact" routerLinkActive="text-green-500 font-bold"  class="hover:text-blue-400 px-2 cursor:pointer">Contact</a>
-    </div>
-</div>
-</div>
