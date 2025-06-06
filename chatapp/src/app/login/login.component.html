@@ -1,0 +1,22 @@
+<!-- <p>login works!</p>
+<input type="text"[(ngModel)]="chatMessage">
+<button (click)="chat()">Enter</button>
+ -->
+
+
+
+<div class="chat-container">
+  <div *ngFor="let message of uiData">
+    <div class="message">
+      <strong>{{ message.user }}:</strong> {{ message.chatMsg }}
+      <span class="timestamp">{{ message.createdAt?.toDate()| date: 'shortTime' }}</span>
+    </div>
+  </div>
+
+  <input [(ngModel)]="chatMessage" placeholder="Type your message" />
+  <button (click)="chat()">Send</button>
+</div>
+
+
+
+
