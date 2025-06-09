@@ -1,0 +1,53 @@
+<div class="flex flex-col h-screen bg-gray-100">
+  <!-- Header -->
+  <div class="bg-white px-4 py-3 flex justify-between items-center shadow">
+    <!-- <img src="https://via.placeholder.com/40" class="rounded-full mr-3" alt="User Avatar"> -->
+  
+      <div class="font-semibold text-gray-800">{{this.authUser }}</div>
+   
+    <div>
+      <button (click)="signout()">Signout</button>
+    </div>
+  </div>
+
+  <!-- Messages Area -->
+  <div class="flex-1 overflow-y-auto px-4 py-2 space-y-3">
+    <div *ngFor="let msg of messages" class="flex"
+  
+         [ngClass]="msg.sender === this.authUser ? 'justify-end' : 'justify-start'">
+      <div class="max-w-xs px-4 py-2 rounded-lg shadow text-sm whitespace-pre-wrap"
+           [ngClass]="msg.sender === this.authUser  ? 'bg-green-500 text-white' : 'bg-white text-gray-800'">
+        <span *ngIf="msg.sender !== this.authUser  " class="block font-semibold mb-1">{{ msg.sender }}</span>
+        {{ msg.chatMsg }}
+        <div class="text-right text-[10px] text-white/60 mt-1" *ngIf="msg.sender === this.authUser  ">
+          <span class="timestamp">{{ msg.createdAt?.toDate()| date: 'shortTime' }}</span>
+        </div>
+      </div>
+    </div> 
+    
+  </div>
+
+  <!-- Message Input -->
+  <div class="bg-white px-4 py-3 flex items-center border-t">
+    <input type="text" [(ngModel)]="chatMessage"
+           placeholder="Type a message"
+           class="flex-1 border rounded-full px-4 py-2 focus:outline-none focus:ring-1 focus:ring-green-500" />
+    <button (click)="chat()"
+            class="ml-2 text-white bg-green-500 hover:bg-green-600 rounded-full p-2 px-4 transition">
+      Send
+    </button>
+  </div>
+</div>
+
+
+<!-- <div class="chat-container">
+  <div *ngFor="let message of uiData">
+    <div class="message">
+      <strong>{{ message.user }}:</strong> {{ message.chatMsg }}
+      <span class="timestamp">{{ message.createdAt?.toDate()| date: 'shortTime' }}</span>
+    </div>
+  </div>
+
+  <input [(ngModel)]="chatMessage" placeholder="Type your message" />
+  <button (click)="chat()">Send</button>
+</div> -->

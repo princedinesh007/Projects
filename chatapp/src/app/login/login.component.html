@@ -1,21 +1,27 @@
-<!-- <p>login works!</p>
-<input type="text"[(ngModel)]="chatMessage">
-<button (click)="chat()">Enter</button>
- -->
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+  <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
+    
+    <form [formGroup]="loginForm" (ngSubmit)="login()" >
+      <div class="mb-4">
+        <label class="block mb-1 text-sm font-medium">Email</label>
+        <input  name="email" required type="email" formControlName="email"
+               class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
 
+      <div class="mb-6">
+        <label class="block mb-1 text-sm font-medium">Password</label>
+        <input  name="password" required type="password" formControlName="password"
+               class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
 
+      <button type="submit" class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition">Login</button>
+    </form>
 
-<div class="chat-container">
-  <div *ngFor="let message of uiData">
-    <div class="message">
-      <strong>{{ message.user }}:</strong> {{ message.chatMsg }}
-      <span class="timestamp">{{ message.createdAt?.toDate()| date: 'shortTime' }}</span>
-    </div>
+    <p class="text-sm text-center mt-4">Don't have an account? <a routerLink="/register" class="text-blue-500 hover:underline">Register</a></p>
   </div>
-
-  <input [(ngModel)]="chatMessage" placeholder="Type your message" />
-  <button (click)="chat()">Send</button>
 </div>
+
 
 
 
