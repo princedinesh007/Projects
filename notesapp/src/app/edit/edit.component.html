@@ -1,0 +1,28 @@
+<div class=" flex flex-col justify-center items-center  p-3 m-3 ">
+    <div class=" w-full max-w-7xl bg-gray-900 text-white rounded-xl shadow-md  m-3 p-8 ">
+        <div class="flex justify-start p-3">
+            <button routerLink="/card" class="text-white">
+                <i class="fa-solid fa-arrow-left"></i>&nbsp;Back to Notes
+            </button>
+        </div>
+        <div class="m-2 p-2">
+            <h1 class="text-white text-2xl font-semibold font-sans">Edit Note</h1>
+        </div>
+        <form>
+            <div class="m-2 p-2 flex flex-col ">
+                <label for="title" class="text-white font-semibold text-lg mb-2">Title</label>
+                <input type="text" id="title"
+                    class="text-input  px-4 py-2  rounded-lg bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-500 border-none" />
+            </div>
+            <div class="m-2 p-2 flex flex-col">
+                <label for="content" class="font-semibold text-lg mb-2">Content</label>
+                <textarea id="content" rows="5"
+                    class="px-4 py-3 rounded-xl bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-500 border-none resize-none"
+                    placeholder="Enter your note here..."></textarea>
+            </div>
+            <div class="flex justify-end mt-4 p-2">
+                <button class="bg-green-500 rounded-full px-6 py-3">Update Note</button>
+            </div>
+        </form>
+    </div>
+</div>

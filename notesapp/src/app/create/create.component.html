@@ -1,0 +1,36 @@
+<div class=" flex flex-col justify-center items-center  p-3 m-3 ">
+    <div class=" w-full max-w-7xl bg-gray-900 text-white rounded-xl shadow-md  m-3 p-8 ">
+        <div class="flex justify-start p-3">
+            <button routerLink="/card" class="text-white">
+                <i class="fa-solid fa-arrow-left"></i>&nbsp;Back to Notes
+            </button>
+        </div>
+        <div class="m-2 p-2">
+            <h1 class="text-white text-2xl font-semibold font-sans">Create New Note</h1>
+        </div>
+        <form [formGroup]="notes" (ngSubmit)="createNote()">
+            <div class="m-2 p-2 flex flex-col ">
+                <label for="title" class="text-white font-semibold text-lg mb-2">Title</label>
+                <input type="text" id="title" formControlName="title" required
+                    class="text-input  px-4 py-2  rounded-lg bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-500 border-none" />
+            </div>
+            <span class="text-red-500 text-sm" *ngIf="notes.get('title')?.invalid && notes.get('title')?.touched">
+                Title is required. 
+            </span>
+            <div class="m-2 p-2 flex flex-col">
+                <label for="content" class="font-semibold text-lg mb-2">Content</label>
+                <textarea id="content" rows="5" formControlName="description" required
+                    class="px-4 py-3 rounded-xl bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-500 border-none resize-none"
+                    placeholder="Enter your note here..."></textarea>
+            </div>
+            <span class="text-red-500 text-sm" *ngIf="notes.get('description')?.invalid && notes.get('description')?.touched">
+                Content is required.
+            </span>
+            <div class="flex justify-end mt-4 p-2">
+                <button class="rounded-full px-6 py-3" type="submit" 
+                [ngClass]="!notes.valid ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-500 cursor-pointer'" 
+                [disabled]="!notes.valid">Create Note</button>
+            </div>
+        </form>
+    </div>
+</div>
